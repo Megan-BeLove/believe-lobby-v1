@@ -30,5 +30,5 @@ Created with ❤️ by Megan, with design inspiration from instinctive meditatio
 
 ---
 
-“Come as you are. You belong here.”  
+“Come as you are. You belong here. Return to the Center. Again and Again.”  
 — *Be Love*
