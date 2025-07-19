@@ -17,12 +17,21 @@
                 material="color: #87ceeb; opacity: 1; side: back"
                 position="0 0 0"></a-entity>
 
-      <!-- Test Portal -->
-      <a-entity geometry="primitive: circle; radius: 1.5"
-                material="color: #ffffff"
-                position="0 1.6 -5">
-        <a-text value="Enter Room 1" color="#000000" align="center" position="0 -1 0"></a-text>
-      </a-entity>
+    <!-- Room Portals Container -->
+<a-entity id="portals">
+
+  <!-- Room 1 Portal -->
+  <a-entity position="0 1.6 -5">
+    <a-plane color="#ffffff" height="1" width="2" opacity="0.9" class="clickable"
+             event-set__enter="_event: mouseenter; color: #dddddd"
+             event-set__leave="_event: mouseleave; color: #ffffff"
+             cursor-listener
+             onclick="window.location.href='room1.html';">
+    </a-plane>
+    <a-text value="Enter Room 1" color="#000000" align="center" position="0 0 0.01"></a-text>
+  </a-entity>
+
+</a-entity>
 
       <!-- Camera Rig -->
       <a-entity id="cameraRig" position="0 1.6 0">
