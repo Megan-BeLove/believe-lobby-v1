@@ -12,26 +12,27 @@
   <body>
     <a-scene background="color: #ffe4e1">
 
-      <!-- Room Background -->
+      <!-- Room Background (Sphere) -->
       <a-entity geometry="primitive: sphere; radius: 30"
-                material="color: #fbeaec; side: back"
+                material="color: #f7e9ec; opacity: 1; side: back"
                 position="0 0 0"></a-entity>
 
-      <!-- Return to Lobby Button (Improved visibility + functionality) -->
-      <a-entity position="0 1.6 -4">
-        <a-plane color="#ffffff" width="2" height="0.75" opacity="0.95"
-                 class="clickable"
-                 event-set__enter="_event: mouseenter; color: #e0e0e0"
-                 event-set__leave="_event: mouseleave; color: #ffffff"
-                 onclick="window.location.href='https://megan-belove.github.io/believe-lobby-v1/index.html';">
-        </a-plane>
-        <a-text value="Return to Lobby" align="center" color="#000000" width="2"
-                position="0 0 0.01"></a-text>
-      </a-entity>
+      <!-- Autoplay Audio -->
+      <a-entity sound="src: url(believe-room-blessing.mp3); autoplay: true; loop: false; volume: 1"></a-entity>
+
+      <!-- Return to Lobby Button -->
+      <a-link 
+        href="https://megan-belove.github.io/believe-lobby-v1/index.html"
+        title="Return to Lobby"
+        position="0 1.6 -5"
+        color="#000000"
+        background-color="#ffffff"
+        opacity="0.9">
+      </a-link>
 
       <!-- Camera -->
       <a-entity id="cameraRig" position="0 1.6 0">
-        <a-camera look-controls wasd-controls-enabled="true"></a-camera>
+        <a-camera wasd-controls-enabled="true" look-controls></a-camera>
       </a-entity>
 
     </a-scene>
