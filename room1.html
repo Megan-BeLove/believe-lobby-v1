@@ -20,15 +20,24 @@
       <!-- Autoplay Audio -->
       <a-entity sound="src: url(believe-room-blessing.mp3); autoplay: true; loop: false; volume: 1"></a-entity>
 
-      <!-- Return to Lobby Button -->
-      <a-link 
-        href="https://megan-belove.github.io/believe-lobby-v1/index.html"
-        title="Return to Lobby"
-        position="0 1.6 -5"
-        color="#000000"
-        background-color="#ffffff"
-        opacity="0.9">
-      </a-link>
+   <!-- Return to Lobby Button -->
+<a-entity position="0 1.6 -5">
+  <a-plane 
+    color="#ffffff"
+    height="1"
+    width="2"
+    opacity="0.9"
+    class="clickable"
+    event-set__enter="_event: mouseenter; color: #dddddd"
+    event-set__leave="_event: mouseleave; color: #ffffff"
+    link="href: index.html; title: Return to Lobby">
+  </a-plane>
+  <a-text value="Return to Lobby"
+          color="#000000"
+          align="center"
+          position="0 0 0.01">
+  </a-text>
+</a-entity>
 
       <!-- Camera -->
       <a-entity id="cameraRig" position="0 1.6 0">
