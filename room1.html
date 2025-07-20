@@ -39,6 +39,33 @@
   </a-text>
 </a-entity>
 
+  <!-- Room Portals Container -->
+      <a-entity id="portals">
+
+<!-- Lobby Portal -->
+<a-entity position="3 1.6 -5">
+  <a-plane color="#ffffff"
+           height="1.2"
+           width="3.5"
+           opacity="0.9"
+           class="clickable"
+           event-set__enter="_event: mouseenter; color: #dddddd"
+           event-set__leave="_event: mouseleave; color: #ffffff"
+           link="href: index.html; title: Lobby">
+  </a-plane>
+  <a-text value="Take me back to the lobby"
+          color="#000000"
+          align="center"
+          width="3"
+          wrap-count="35"
+          scale="0.8 0.8 0.8"
+          position="0 0 0.01">
+  </a-text>
+</a-entity>
+
+      </a-entity>
+      
+
       <!-- Camera -->
       <a-entity id="cameraRig" position="0 1.6 0">
         <a-camera wasd-controls-enabled="true" look-controls></a-camera>
