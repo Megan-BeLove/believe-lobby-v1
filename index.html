@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Be Love Lobby</title>
-    <meta name="description" content="Belove Lobby V1 - Debug Test">
+    <meta name="description" content="Belove Lobby V1 - Partial Arc Right Side">
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <style>
       body { margin: 0; }
@@ -14,17 +14,16 @@
              cursor="rayOrigin: mouse"
              raycaster="objects: .clickable">
 
-      <!-- Opaque Sphere Lobby -->
+      <!-- Sphere Lobby -->
       <a-entity geometry="primitive: sphere; radius: 30"
                 material="color: #87ceeb; opacity: 1; side: back"
                 position="0 0 0"></a-entity>
 
-      <!-- Room Portals Container (dynamically filled below) -->
-      <a-entity id="portals" place-portals></a-entity>
-
-      <!-- Camera Rig -->
-      <a-entity id="cameraRig" position="0 1.6 0">
-        <a-camera wasd-controls-enabled="true" look-controls></a-camera>
+      <!-- Room Portals in Arc to the Right -->
+      <a-entity id="portals">
+        <script>
+          // We'll add this logic via <script> to auto-generate portals
+        </script>
       </a-entity>
 
       <!-- Logo -->
@@ -34,64 +33,57 @@
                height="3"
                transparent="true">
       </a-image>
-    </a-scene>
 
-    <!-- JS to Place Portals in Sphere Layout -->
-    <script>
-      AFRAME.registerComponent('place-portals', {
-        schema: {
-          radius: {type: 'number', default: 28} // slightly smaller than your sphere's radius
-        },
-        init: function () {
-          const radius = this.data.radius;
+      <!-- Camera -->
+      <a-entity id="cameraRig" position="0 1.6 0">
+        <a-camera wasd-controls-enabled="true" look-controls></a-camera>
+      </a-entity>
 
-          const roomData = [
-            {
-              title: "Room 1",
-              label: "Enter Room 1 to learn about your host and Instinctive Meditation",
-              href: "room1.html"
-            },
-            {
-              title: "Room 2",
-              label: "Enter Room 2 to receive healing reiki energy",
-              href: "room2.html"
-            },
-            // Add more rooms here if you like
-          ];
+      <script>
+        // JavaScript to generate portals on an arc
+        const numRooms = 2;
+        const arcAngle = 90; // degrees
+        const radius = 5;
+        const startAngle = -20; // Shift arc to the right
+        const portalsEl = document.querySelector("#portals");
 
-          roomData.forEach((room, i) => {
-            const theta = Math.acos(-1 + (2 * i) / roomData.length);
-            const phi = Math.PI * (1 + Math.sqrt(5)) * i;
+        const labels = [
+          "Enter Room 1 to learn about your host and Instinctive Meditation",
+          "Enter Room 2 to receive healing Reiki energy"
+        ];
+        const hrefs = ["room1.html", "room2.html"];
 
-            const x = radius * Math.sin(theta) * Math.cos(phi);
-            const y = radius * Math.cos(theta);
-            const z = radius * Math.sin(theta) * Math.sin(phi);
+        for (let i = 0; i < numRooms; i++) {
+          const angleDeg = startAngle + (i * arcAngle) / (numRooms - 1);
+          const angleRad = (angleDeg * Math.PI) / 180;
+          const x = radius * Math.sin(angleRad);
+          const z = -radius * Math.cos(angleRad);
 
-            const portal = document.createElement('a-entity');
-            portal.setAttribute('position', `${x} ${y} ${z}`);
-            portal.setAttribute('look-at', '[camera]');
+          const room = document.createElement("a-entity");
+          room.setAttribute("position", `${x} 1.6 ${z}`);
 
-            portal.innerHTML = `
-              <a-plane color="#ffffff"
-                       height="1.2"
-                       width="3.5"
-                       opacity="0.9"
-                       class="clickable"
-                       link="href: ${room.href}; title: ${room.title}">
-              </a-plane>
-              <a-text value="${room.label}"
-                      color="#000000"
-                      align="center"
-                      width="3"
-                      wrap-count="35"
-                      scale="0.8 0.8 0.8"
-                      position="0 0 0.01"></a-text>
-            `;
-
-            this.el.appendChild(portal);
-          });
+          room.innerHTML = `
+            <a-plane color="#ffffff"
+                     height="1.2"
+                     width="3.5"
+                     opacity="0.9"
+                     class="clickable"
+                     event-set__enter="_event: mouseenter; color: #dddddd"
+                     event-set__leave="_event: mouseleave; color: #ffffff"
+                     link="href: ${hrefs[i]}; title: Room ${i + 1}">
+            </a-plane>
+            <a-text value="${labels[i]}"
+                    color="#000000"
+                    align="center"
+                    width="3"
+                    wrap-count="35"
+                    scale="0.8 0.8 0.8"
+                    position="0 0 0.01">
+            </a-text>
+          `;
+          portalsEl.appendChild(room);
         }
-      });
-    </script>
+      </script>
+    </a-scene>
   </body>
 </html>
