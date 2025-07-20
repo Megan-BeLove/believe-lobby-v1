@@ -10,41 +10,50 @@
     </style>
   </head>
   <body>
-    <a-scene background="color: #1a1a1a">
+    <a-scene background="color: #1a1a1a"
+             cursor="rayOrigin: mouse"
+             raycaster="objects: .clickable">
 
       <!-- Opaque Sphere Lobby -->
       <a-entity geometry="primitive: sphere; radius: 30"
                 material="color: #87ceeb; opacity: 1; side: back"
                 position="0 0 0"></a-entity>
 
-    <!-- Room Portals Container -->
-<a-entity id="portals">
+      <!-- Room Portals Container -->
+      <a-entity id="portals">
 
-  <!-- Room 1 Portal -->
-  <a-entity position="3 1.6 -5">
-    <a-plane color="#ffffff" height="1" width="2" opacity="0.9" class="clickable"
-             event-set__enter="_event: mouseenter; color: #dddddd"
-             event-set__leave="_event: mouseleave; color: #ffffff"
-             cursor-listener
-             onclick="window.location.href='room1.html';">
-    </a-plane>
-    <a-text value="Enter Room 1" color="#000000" align="center" position="0 0 0.01"></a-text>
-  </a-entity>
+        <!-- Room 1 Portal -->
+        <a-entity position="3 1.6 -5">
+          <a-plane color="#ffffff"
+                   height="1"
+                   width="2"
+                   opacity="0.9"
+                   class="clickable"
+                   event-set__enter="_event: mouseenter; color: #dddddd"
+                   event-set__leave="_event: mouseleave; color: #ffffff"
+                   link="href: room1.html; title: Room 1">
+          </a-plane>
+          <a-text value="Enter Room 1"
+                  color="#000000"
+                  align="center"
+                  position="0 0 0.01"></a-text>
+        </a-entity>
 
-</a-entity>
+      </a-entity>
 
       <!-- Camera Rig -->
       <a-entity id="cameraRig" position="0 1.6 0">
         <a-camera wasd-controls-enabled="true" look-controls></a-camera>
       </a-entity>
 
+      <!-- Logo -->
       <a-image src="Be%20Love%20Watercolor%20Logo.png"
-         position="0 2 -4"
-         width="3"
-         height="3"
-         transparent="true">
-</a-image>
-      
+               position="0 2 -4"
+               width="3"
+               height="3"
+               transparent="true">
+      </a-image>
+
     </a-scene>
   </body>
 </html>
