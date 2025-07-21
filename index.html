@@ -71,9 +71,16 @@
       </a-entity>
 
       <!-- Camera -->
+
+      
       <a-entity id="cameraRig" position="0 1.6 0">
-        <a-camera wasd-controls-enabled="true" look-controls></a-camera>
-      </a-entity>
+  <a-camera 
+    wasd-controls-enabled="true" 
+    look-controls 
+    cursor="rayOrigin: mouse" 
+    raycaster="objects: .clickable">
+  </a-camera>
+</a-entity>
 
     </a-scene>
   </body>
