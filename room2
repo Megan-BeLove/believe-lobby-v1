@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Room 1</title>
+  <meta name="description" content="Room 2 of the Be Love Temple">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-href-component@0.3.2/dist/aframe-href-component.min.js"></script>
+  <style>
+    body { margin: 0; }
+  </style>
+</head>
+  <body>
+    <a-scene background="color: #ffe4e1">
+
+      <!-- Room Background (Sphere) -->
+      <a-entity geometry="primitive: sphere; radius: 30"
+                material="color: #f7e9ec; opacity: 1; side: back"
+                position="0 0 0"></a-entity>
+
+      <!-- Autoplay Audio -->
+      <a-entity sound="src: url(believe-room-blessing.mp3); autoplay: true; loop: false; volume: 1"></a-entity>
+
+  
+
+    <!-- Return to Lobby Button -->
+<a-entity position="0 1.6 -5">
+  <a-plane color="#ffffff"
+           height="1"
+           width="2.5"
+           opacity="0.9"
+           class="clickable"
+           event-set__enter="_event: mouseenter; color: #dddddd"
+           event-set__leave="_event: mouseleave; color: #ffffff"
+           link="href: index.html; title: Return to Lobby">
+  </a-plane>
+  <a-text value="Return to Lobby"
+          color="#000000"
+          align="center"
+          width="2"
+          wrap-count="20"
+          scale="0.8 0.8 0.8"
+          position="0 0 0.01">
+  </a-text>
+</a-entity>
+      
+
+      <!-- Camera -->
+     <a-entity id="cameraRig" position="0 1.6 0">
+  <a-camera 
+    wasd-controls-enabled="true" 
+    look-controls 
+    cursor="rayOrigin: mouse" 
+    raycaster="objects: .clickable">
+  </a-camera>
+</a-entity>
+
+    </a-scene>
+  </body>
+</html>
