@@ -45,8 +45,57 @@
 </a-entity>
       
 
+    <!-- Room Portals in Circle -->
+      <a-entity id="portals">
+        <!-- Room 1 -->
+        <a-entity position="5 1.6 0" rotation="0 -90 0"
+                  geometry="primitive: plane; height: 1.2; width: 3"
+                  material="color: white; opacity: 0.9"
+                  class="clickable"
+                  link="href: natural-doorways.html">
+          <a-text value="Your Natural Doorways Guided Meditation"
+                  color="#000000" align="center"
+                  width="2.8" position="0 0 0.01"></a-text>
+        </a-entity>
+
+        <!-- Room 2 -->
+        <a-entity position="3.5 1.6 3.5" rotation="0 -135 0"
+                  geometry="primitive: plane; height: 1.2; width: 3"
+                  material="color: white; opacity: 0.9"
+                  class="clickable"
+                  link="href: natural-doorways.html">
+          <a-text value="Bhavana Guided Meditation"
+                  color="#000000" align="center"
+                  width="2.8" position="0 0 0.01"></a-text>
+        </a-entity>
+
+        <!-- Room 3 placeholder -->
+        <a-entity position="0 1.6 5" rotation="0 180 0"
+                  geometry="primitive: plane; height: 1.2; width: 3"
+                  material="color: white; opacity: 0.9"
+                  class="clickable"
+                  link="href: natural-doorways.html">
+          <a-text value="Healing Guided Meditation"
+                  color="#000000" align="center"
+                  width="2.8" position="0 0 0.01"></a-text>
+        </a-entity>
+
+        <!-- Room 4 placeholder -->
+        <a-entity position="-3.5 1.6 3.5" rotation="0 135 0"
+                  geometry="primitive: plane; height: 1.2; width: 3"
+                  material="color: white; opacity: 0.9"
+                  class="clickable"
+                  link="href: natural-doorways.html">
+          <a-text value="Breath of Compassion Guided Meditation"
+                  color="#000000" align="center"
+                  width="2.8" position="0 0 0.01"></a-text>
+        </a-entity>
+      </a-entity>
+
       <!-- Camera -->
-     <a-entity id="cameraRig" position="0 1.6 0">
+
+      
+      <a-entity id="cameraRig" position="0 1.6 0">
   <a-camera 
     wasd-controls-enabled="true" 
     look-controls 
@@ -54,6 +103,7 @@
     raycaster="objects: .clickable">
   </a-camera>
 </a-entity>
+
 
     </a-scene>
   </body>
