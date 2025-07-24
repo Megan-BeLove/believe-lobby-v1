@@ -19,9 +19,6 @@
                 position="0 0 0">
       </a-entity>
 
-      <!-- Autoplay Audio -->
-      <a-entity sound="src: url(bhavana-meditation.mp3); autoplay: true; loop: false; volume: 1">
-      </a-entity>
 
     <!-- Return to Lobby Button -->
 <a-entity position="0 1.6 -5">
@@ -55,12 +52,13 @@
       </a-text>
 
          <!-- Camera -->
-     <a-entity id="cameraRig" position="0 1.6 0">
+    <a-entity id="cameraRig" position="0 1.6 0">
   <a-camera 
     wasd-controls-enabled="true" 
     look-controls 
     cursor="rayOrigin: mouse" 
-    raycaster="objects: .clickable">
+    raycaster="objects: .clickable"
+    sound="src: url(bhavana-meditation.mp3); autoplay: true; loop: false; volume: 1; positional: false">
   </a-camera>
 </a-entity>
 
