@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bhavana Room</title>
+    <meta name="description" content="A meditation for healing">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-href-component@0.3.2/dist/aframe-href-component.min.js"></script>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <a-scene background="color: #f0f5e3"> <!-- soft sage green background -->
+
+      <!-- Spherical Room -->
+      <a-entity geometry="primitive: sphere; radius: 30"
+                material="color: #dcedc8; opacity: 1; side: back"
+                position="0 0 0">
+      </a-entity>
+
+
+    <!-- Return to Lobby Button -->
+<a-entity position="0 1.6 -5">
+  <a-plane color="#ffffff"
+           height="1"
+           width="2.5"
+           opacity="0.9"
+           class="clickable"
+           event-set__enter="_event: mouseenter; color: #dddddd"
+           event-set__leave="_event: mouseleave; color: #ffffff"
+           link="href: index.html; title: Return to Lobby">
+  </a-plane>
+  <a-text value="Return to Lobby"
+          color="#000000"
+          align="center"
+          width="2"
+          wrap-count="20"
+          scale="0.8 0.8 0.8"
+          position="0 0 0.01">
+  </a-text>
+</a-entity>
+
+      <!-- Title Sign -->
+      <a-text value="A Healing Meditation \n\nA guided meditation will begin shortly. \nIt was last about 30 minutes."
+              position="0 3 -5"
+              align="center"
+              width="6"
+              color="#2e7d32"
+              font="dejavu"
+              wrap-count="40">
+      </a-text>
+
+         <!-- Camera -->
+    <a-entity id="cameraRig" position="0 1.6 0">
+  <a-camera 
+    wasd-controls-enabled="true" 
+    look-controls 
+    cursor="rayOrigin: mouse" 
+    raycaster="objects: .clickable"
+    sound="src: url(healing-meditation.mp3); autoplay: true; loop: false; volume: 1; positional: false">
+  </a-camera>
+</a-entity>
+
+
+    </a-scene>
+  </body>
+</html>
