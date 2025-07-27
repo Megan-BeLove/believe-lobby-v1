@@ -55,6 +55,19 @@
   ></a-text>
 </a-entity>
 
+     <!-- "your feedback" as a link below the main text -->
+<a-entity position="0 3.2 -4.5" rotation="0 0 0"
+          geometry="primitive: plane; height: 0.3; width: 2"
+          material="color: #ffffff; opacity: 0"
+          class="clickable"
+          link="href: https://docs.google.com/forms/d/e/1FAIpQLSeYrJAj8_Cvlcgvo8tEQZ9w8V9X4vNqhNXJjxGqvNNfJxxfXw/viewform?usp=dialog">
+  <a-text value="Click here to share your feedback"
+          color="#0000ff"
+          align="center"
+          width="3"
+          position="0 0 0.01"></a-text>
+</a-entity>
+
       <!-- Camera -->
      <a-entity id="cameraRig" position="0 1.6 0">
   <a-camera 
