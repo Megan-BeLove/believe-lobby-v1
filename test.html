@@ -15,9 +15,13 @@
     <a-scene background="color: #87ceeb">
 
       <!-- Opaque Sphere Lobby -->
-      <a-entity geometry="primitive: sphere; radius: 30"
-                material="color: #87ceeb; opacity: 1; side: back"
-                position="0 0 0"></a-entity>
+     <a-assets>
+  <img id="cloudTexture" src="5177354.jpg">
+</a-assets>
+
+<a-entity geometry="primitive: sphere; radius: 30"
+          material="src: #cloudTexture; side: back; shader: flat"
+          position="0 0 0"></a-entity>
 
       <!-- Logo -->
       <a-image src="Be%20Love%20Watercolor%20Logo.png" position="0 2 -4" width="3" height="3" transparent="true"></a-image>
