@@ -14,14 +14,16 @@
     <a-scene background="color: #87ceeb">
 
       <!-- Load cloud image -->
-      <a-assets>
-        <img id="cloudTexture" src="soft_blue_clouds_2048x1024.jpg">
-      </a-assets>
+    <a-assets>
+  <img id="cloudTexture" src="seamless_soft_blue_clouds_2048x1024.jpg">
+</a-assets>
+
+
 
       <!-- Sky Sphere with watercolor clouds -->
-      <a-entity geometry="primitive: sphere; radius: 30"
-                material="src: #cloudTexture; side: back; shader: flat"
-                position="0 0 0"></a-entity>
+    <a-entity geometry="primitive: sphere; radius: 30"
+          material="src: #cloudTexture; side: back; shader: flat"
+          position="0 0 0"></a-entity>
 
       <!-- Soft ambient lighting -->
       <a-entity light="type: ambient; intensity: 1"></a-entity>
