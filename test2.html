@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Be Love Lobby</title>
+    <meta name="description" content="Welcome to the Be Love Lobby">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-href-component@0.3.2/dist/aframe-href-component.min.js"></script>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <a-scene background="color: #87ceeb">
+
+      <!-- Load cloud image -->
+      <a-assets>
+        <img id="cloudTexture" src="soft_blue_clouds_2048x1024.jpg">
+      </a-assets>
+
+      <!-- Sky Sphere with watercolor clouds -->
+      <a-entity geometry="primitive: sphere; radius: 30"
+                material="src: #cloudTexture; side: back; shader: flat"
+                position="0 0 0"></a-entity>
+
+      <!-- Soft ambient lighting -->
+      <a-entity light="type: ambient; intensity: 1"></a-entity>
+
+      <!-- Logo -->
+      <a-image src="Be%20Love%20Watercolor%20Logo.png" position="0 2 -4" width="3" height="3" transparent="true"></a-image>
+
+      <!-- Welcome Text -->
+      <a-entity position="0 5 -4.5" rotation="0 0 0">
+        <a-text 
+          value="Welcome to the BE LOVE peace platform.\n\nCome as you are;\n\nYOU BELONG HERE.\n\nReturn to the Center,\n\nAGAIN & AGAIN..."
+          color="#000000"
+          align="center"
+          width="4"
+          wrap-count="40"
+          position="0 0 0.01">
+        </a-text>
+      </a-entity>
+
+      <!-- Room Portals in Circle -->
+      <a-entity id="portals">
